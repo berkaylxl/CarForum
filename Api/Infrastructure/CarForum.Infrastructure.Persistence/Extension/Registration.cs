@@ -1,4 +1,6 @@
-﻿using CarForum.Infrastructure.Persistence.Context;
+﻿using CarForum.Api.Application.Interfaces.Repositories;
+using CarForum.Infrastructure.Persistence.Context;
+using CarForum.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,7 +27,7 @@ namespace CarForum.Infrastructure.Persistence.Extension
             });
             //var seedData = new SeedData();
             //seedData.SeedAsync(configuration).GetAwaiter().GetResult();
-
+            services.AddScoped<IUserRepository, UserRepository>();
             return services;
         }
      }

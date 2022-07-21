@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\CarForum.Api.Application\CarForum.Api.Application.csproj" />
     <ProjectReference Include="..\..\Core\CarForum.Api.Domain\CarForum.Api.Domain.csproj" />
   </ItemGroup>
 
