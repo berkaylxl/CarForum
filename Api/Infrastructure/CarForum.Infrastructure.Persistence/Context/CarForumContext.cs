@@ -71,7 +71,7 @@ namespace CarForum.Infrastructure.Persistence.Context
             OnBeforeSave();
             return base.SaveChangesAsync(cancellationToken);
         }
-
+         
         private void OnBeforeSave()
         {
             var addedEntities=ChangeTracker.Entries()

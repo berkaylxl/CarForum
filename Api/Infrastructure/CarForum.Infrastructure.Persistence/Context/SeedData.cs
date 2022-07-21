@@ -40,7 +40,7 @@ namespace CarForum.Infrastructure.Persistence.Context
             if (context.User.Any ())
             {
                 await Task.CompletedTask;
-                return;
+                return; 
             }
             var users = GetUsers();
             var userIds = users.Select(i => i.Id);

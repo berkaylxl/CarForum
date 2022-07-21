@@ -8,7 +8,7 @@ namespace CarForum.Infrastructure.Persistence.Migrations
     public partial class InitMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
+        { 
             migrationBuilder.EnsureSchema(
                 name: "dbo");
 

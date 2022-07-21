@@ -12,7 +12,7 @@ namespace CarForum.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(CarForumContext))]
     partial class CarForumContextModelSnapshot : ModelSnapshot
-    {
+    { 
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace CarForum.Infrastructure.Persistence.Extension
 {
     public static class Registration
-    {
+    { 
        
         public static IServiceCollection AddInfrastructureRegistration(this IServiceCollection services, IConfiguration configuration)
         {
