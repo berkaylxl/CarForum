@@ -20,7 +20,7 @@ namespace CarForum.Infrastructure.Persistence.Extension
             services.AddDbContext<CarForumContext>(conf =>
             {
                 var conStr = configuration.GetConnectionString("CarForumConnectionString");
-                conf.UseSqlServer("conStr",opt =>
+                conf.UseSqlServer(conStr,opt =>
                 {
                     opt.EnableRetryOnFailure();
                 });
@@ -28,6 +28,11 @@ namespace CarForum.Infrastructure.Persistence.Extension
             //var seedData = new SeedData();
             //seedData.SeedAsync(configuration).GetAwaiter().GetResult();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IEntryRepository, EntryRepository>();
+            services.AddScoped<IEmailConfirmationRepository, EmailConfirmationRepository>();
+            services.AddScoped<IEntryCommentRepository,EntryCommentRepository>();
+
+            
             return services;
         }
      }

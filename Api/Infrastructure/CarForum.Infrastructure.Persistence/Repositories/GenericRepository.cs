@@ -13,9 +13,9 @@ namespace CarForum.Infrastructure.Persistence.Repositories
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity
     {
-        private readonly CarForumContext _dbContext;
+        private readonly DbContext _dbContext;
         protected DbSet<TEntity> entity => _dbContext.Set<TEntity>();
-        public GenericRepository(CarForumContext dbContext)
+        public GenericRepository(DbContext dbContext)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
@@ -81,13 +81,13 @@ namespace CarForum.Infrastructure.Persistence.Repositories
 
         public virtual bool DeleteRange(Expression<Func<TEntity, bool>> predicate)
         {
-            _dbContext.RemoveRange(predicate);
+            _dbContext.RemoveRange(entity.Where(predicate));
             return _dbContext.SaveChanges() > 0;
         }
         public virtual async Task<bool> DeleteRangeAsync(Expression<Func<TEntity, bool>> predicate)
         {
 
-            _dbContext.RemoveRange(predicate);
+            _dbContext.RemoveRange(entity.Where(predicate));
             return await _dbContext.SaveChangesAsync() > 0;
         }
         #endregion
@@ -169,6 +169,8 @@ namespace CarForum.Infrastructure.Persistence.Repositories
             if(predicate != null)
                 query = query.Where(predicate);
 
+            query = ApplyIncludes(query, includes);
+
             if(noTracking)
                 query=query.AsNoTracking();
             return query;
@@ -217,7 +219,19 @@ namespace CarForum.Infrastructure.Persistence.Repositories
 
         public virtual async Task<TEntity> GetSingleAsync(Expression<Func<TEntity, bool>> predicate, bool noTracking = true, params Expression<Func<TEntity, object>>[] includes)
         {
-            throw new NotImplementedException();
+            IQueryable<TEntity> query = entity;
+            if (predicate != null)
+            {
+                query = query.Where(predicate);
+            }
+
+            query = ApplyIncludes(query, includes);
+
+            if (noTracking)
+                query=query.AsNoTracking();
+            
+            return await query.SingleOrDefaultAsync();
+
         }
         #endregion
 
@@ -235,6 +249,17 @@ namespace CarForum.Infrastructure.Persistence.Repositories
         public virtual IQueryable<TEntity> AsQueryable()
         {
             return entity.AsQueryable();
+        }
+        private static IQueryable<TEntity> ApplyIncludes(IQueryable<TEntity> query,params Expression<Func<TEntity,Object>>[]includes)
+        {
+            if (includes!=null)
+            {
+                foreach(var includeItem in includes)
+                {
+                    query = query.Include(includeItem);
+                }
+            }
+            return query;
         }
     }
 }
