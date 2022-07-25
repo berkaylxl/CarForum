@@ -15,9 +15,10 @@ namespace CarForum.Api.Application.Mapping
         public MappingProfile()
         {
             CreateMap<User, LoginUserViewModel>().ReverseMap();
-            CreateMap<User,CreateUserCommand>().ReverseMap();
-            CreateMap<User, UpdateUserCommand>().ReverseMap();
-
+            CreateMap<CreateUserCommand, User>();
+            CreateMap<UpdateUserCommand, User>();
+            CreateMap<CreateEntryCommand, Entry>().ReverseMap();
+            CreateMap<CreateEntryCommentCommand, EntryComment>().ReverseMap();
         }
     }
 }
