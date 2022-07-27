@@ -30,11 +30,13 @@ namespace CarForum.Api.Application.Features.Commands.User.ChangePassword
 
             if (dbUser is null)
                 throw new DatabaseValidationExcepton("user not found");
+
             var encrypPassword = PasswordEncryptor.Encrpt(request.OldPassword);
             if (dbUser.Password != encrypPassword)
                 throw new DatabaseValidationExcepton("Old password wrong!");
-            
-            dbUser.Password = encrypPassword;
+
+            dbUser.Password = PasswordEncryptor.Encrpt(request.NewPassword);
+
             await _userRepository.UpdateAsync(dbUser);
             return true;
         
