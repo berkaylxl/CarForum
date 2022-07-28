@@ -1,4 +1,6 @@
 ﻿using CarForum.Api.Application.Features.Commands.User.ConfirmEmail;
+using CarForum.Api.Application.Features.Queries.GetEntryComments;
+using CarForum.Api.Application.Features.Queries.GetUserDetail;
 using CarForum.Common.Events.User;
 using CarForum.Common.Models.RequestModels;
 using MediatR;
@@ -16,6 +18,22 @@ namespace CarForum.Api.WebApi.Controllers
         {
             _mediator = mediator;
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(Guid id)
+        {
+            var result = _mediator.Send(new GetUserDetailQuery(id));
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("UserName/{userName}")]
+        public async Task<IActionResult>GetByUserName(string userName)
+        {
+            var result = await _mediator.Send(new GetUserDetailQuery( Guid.Empty,userName));
+            return Ok(result);
+        }
+
         [HttpPost]
         [Route("Login")]
         public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
