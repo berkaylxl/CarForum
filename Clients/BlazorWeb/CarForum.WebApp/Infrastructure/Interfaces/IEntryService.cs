@@ -6,7 +6,7 @@ namespace CarForum.WebApp.Infrastructure.Interfaces
 {
     public interface IEntryService
     {
-        Task<Guid> CreateEntry(CreateEntryCommand command);
+        Task<Guid>CreateEntry(CreateEntryCommand command);
         Task<Guid> CreateEntryComment(CreateEntryCommand command);
         Task<List<GetEntriesViewModel>> GetEntries();
         Task<PagedViewModel<GetEntryDetailViewModel>> GetEntryComments(Guid entryId, int page, int pageSize);
