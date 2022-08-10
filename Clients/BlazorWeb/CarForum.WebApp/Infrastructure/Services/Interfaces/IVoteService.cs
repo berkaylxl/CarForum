@@ -1,5 +1,5 @@
 ﻿
-namespace CarForum.WebApp.Infrastructure.Interfaces
+namespace CarForum.WebApp.Infrastructure.Services.Interfaces
 {
     public interface IVoteService
     {

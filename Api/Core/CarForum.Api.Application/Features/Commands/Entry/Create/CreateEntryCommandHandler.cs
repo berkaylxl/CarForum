@@ -20,7 +20,6 @@ namespace CarForum.Api.Application.Features.Commands.Entry.Create
             _entryRepository = entryRepository;
             _mapper = mapper;
         }
-
         public async Task<Guid> Handle(CreateEntryCommand request, CancellationToken cancellationToken)
         {
             var dbEntry = _mapper.Map<Domain.Models.Entry>(request);

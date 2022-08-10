@@ -15,6 +15,11 @@ namespace CarForum.Api.WebApi.Controllers
         
         private readonly IMediator _mediator;
 
+        public VoteController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         [HttpPost]
         [Route("Entry/{entryId}")]
         public  async Task<IActionResult> CreateEntryVote (Guid entryId,VoteType voteType = VoteType.UpVote)

@@ -2,7 +2,7 @@
 using CarForum.Common.Models.Queries;
 using CarForum.Common.Models.RequestModels;
 
-namespace CarForum.WebApp.Infrastructure.Interfaces
+namespace CarForum.WebApp.Infrastructure.Services.Interfaces
 {
     public interface IEntryService
     {

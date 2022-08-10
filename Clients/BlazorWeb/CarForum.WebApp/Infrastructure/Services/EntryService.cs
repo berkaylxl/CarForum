@@ -1,7 +1,7 @@
 ﻿using CarForum.Common.Models.Page;
 using CarForum.Common.Models.Queries;
 using CarForum.Common.Models.RequestModels;
-using CarForum.WebApp.Infrastructure.Interfaces;
+using CarForum.WebApp.Infrastructure.Services.Interfaces;
 using System.Net.Http.Json;
 
 namespace CarForum.WebApp.Infrastructure.Services

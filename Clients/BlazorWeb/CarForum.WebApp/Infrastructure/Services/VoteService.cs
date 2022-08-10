@@ -1,5 +1,5 @@
 ﻿using CarForum.Common.ViewModels;
-using CarForum.WebApp.Infrastructure.Interfaces;
+using CarForum.WebApp.Infrastructure.Services.Interfaces;
 
 namespace CarForum.WebApp.Infrastructure.Services
 {

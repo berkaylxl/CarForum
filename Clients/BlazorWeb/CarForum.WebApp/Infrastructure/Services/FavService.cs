@@ -1,4 +1,6 @@
-﻿namespace CarForum.WebApp.Infrastructure.Services
+﻿using CarForum.WebApp.Infrastructure.Services.Interfaces;
+
+namespace CarForum.WebApp.Infrastructure.Services
 {
     public class FavService : IFavService
     {
