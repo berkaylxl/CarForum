@@ -33,19 +33,14 @@ namespace CarForum.Api.Application.Features.Commands.User.Login
         public async Task<LoginUserViewModel> Handle(LoginUserCommand request, CancellationToken cancellationToken)
         {
             var dbUser = await userRepository.GetSingleAsync(i=>i.EmailAdress==request.EmailAdress);
-
             if (dbUser == null)
                 throw new DatabaseValidationExcepton("User not found");
-
             var password = PasswordEncryptor.Encrpt(request.Password);
             if (dbUser.Password != password)
                 throw new DatabaseValidationExcepton("Password is wrong");
-
             if (dbUser.EmailConfirmed)
                 throw new DatabaseValidationExcepton("Email is not confirmed");
-
             var result = mapper.Map<LoginUserViewModel>(dbUser);
-
             var claims = new Claim[]
             {
                 new Claim(ClaimTypes.NameIdentifier,dbUser.Id.ToString()),
@@ -54,25 +49,19 @@ namespace CarForum.Api.Application.Features.Commands.User.Login
                 new Claim(ClaimTypes.GivenName,dbUser.FirstName),
                 new Claim(ClaimTypes.Surname,dbUser.LastName),
             };
-
-
             result.Token = GenerateToken(claims);
             return result;
-          
         }
         private string GenerateToken(Claim[] claims)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["AuthConfig:Secret"]));
             var creds =new SigningCredentials(key,SecurityAlgorithms.HmacSha256);
             var expiry=DateTime.UtcNow.AddDays(10);
-
             var token=new JwtSecurityToken(claims:claims,
                                            expires:expiry,
                                            signingCredentials:creds,
                                            notBefore:DateTime.Now);
             return new JwtSecurityTokenHandler().WriteToken(token);
-                                          
-        
         }
     }
 }

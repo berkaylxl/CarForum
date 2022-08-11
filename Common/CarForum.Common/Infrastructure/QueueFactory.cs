@@ -12,8 +12,8 @@ namespace CarForum.Common.Infrastructure
     public static class QueueFactory
     {
         //Bu metot çağrıldığında bir tane consumer yaratılacak.
-        //Exchange yaratılacak yoksa yaratacak
-        //Queue bakıcak yoksa yaratacak
+        //Exchange yaratılacak
+        //Queue bakıcak yoksa yaratılacak
         public static void SendMessageToExchange(string exchangeName,
                                       string exchangeType,
                                       string queueName,
@@ -21,14 +21,14 @@ namespace CarForum.Common.Infrastructure
         {
             var channel = CreateBasicConsumer()
                   .EnsureExchange(exchangeName, exchangeType)
-                  .EnsureQueue(queueName,exchangeName)
+                  .EnsureQueue(queueName, exchangeName)
                   .Model;
 
             var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(obj));
-            channel.BasicPublish(exchange:exchangeName,
-                                 routingKey:queueName,
-                                 basicProperties:null,
-                                 body:body);
+            channel.BasicPublish(exchange: exchangeName,
+                                 routingKey: queueName,
+                                 basicProperties: null,
+                                 body: body);
         }
 
         public static EventingBasicConsumer CreateBasicConsumer()
@@ -39,8 +39,7 @@ namespace CarForum.Common.Infrastructure
             return new EventingBasicConsumer(channel);
         }
 
-
-
+    
         public static EventingBasicConsumer EnsureExchange(this EventingBasicConsumer consumer,
                                                             string exchangeName,
                                                             string exchangeType = "direct")

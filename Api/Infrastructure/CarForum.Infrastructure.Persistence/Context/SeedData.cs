@@ -36,7 +36,6 @@ namespace CarForum.Infrastructure.Persistence.Context
             var conStr = configuration.GetConnectionString("CarForumConnectionString");
             dbContextBuilder.UseSqlServer(conStr);
             var context = new CarForumContext(dbContextBuilder.Options);
-
             if (context.User.Any ())
             {
                 await Task.CompletedTask;
@@ -45,8 +44,6 @@ namespace CarForum.Infrastructure.Persistence.Context
             var users = GetUsers();
             var userIds = users.Select(i => i.Id);
             await context.User.AddRangeAsync(users);
-
-            
             var guids = Enumerable.Range(0, 150).Select(i => Guid.NewGuid()).ToList();
             int counter = 0;
             var entries = new Faker<Entry>("tr")
@@ -57,9 +54,7 @@ namespace CarForum.Infrastructure.Persistence.Context
                 .RuleFor(i => i.Content, i => i.Lorem.Paragraph(2))
                 .RuleFor(i => i.CreatedById, i => i.PickRandom(userIds))
                 .Generate(150);
-
             await context.Entries.AddRangeAsync(entries);
-
             var comments = new Faker<EntryComment>("tr")
                  .RuleFor(i => i.Id,i=> Guid.NewGuid())
                  .RuleFor(i => i.CreateDate,
@@ -68,7 +63,6 @@ namespace CarForum.Infrastructure.Persistence.Context
                   .RuleFor(i => i.CreateById, i => i.PickRandom(userIds))
                   .RuleFor(i=> i.EntryId,i=>i.PickRandom(guids))
                   .Generate(1000);
-
             await context.EntryComment.AddRangeAsync(comments);
             await context.SaveChangesAsync();
         }

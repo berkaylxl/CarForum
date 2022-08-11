@@ -13,17 +13,13 @@ namespace CarForum.Infrastructure.Persistence.Context
     {
         public static string DEFAULT_SCHEMA = "dbo";
 
-
         public CarForumContext() { }
         public CarForumContext( DbContextOptions opt):base(opt) {}
-
         public DbSet<User> User { get; set; }
         public DbSet<Entry> Entries { get; set; }
-
         public DbSet<EntryComment> EntryComment { get; set; }
         public DbSet<EntryFavorite> EntryFavorites { get; set; }
         public DbSet<EntryVote> EntryVotes { get; set; }
-
         public DbSet<EntryCommentFavorite>EntryCommentFavorites{ get; set; }
         public DbSet<EntryCommentVote> EntryCommentVotes { get; set; }
 
