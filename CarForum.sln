@@ -21,23 +21,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{50FF3D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorWeb", "BlazorWeb", "{4F71EDFA-5CD0-4C7A-930A-341A854638C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarForum.Common", "Common\CarForum.Common\CarForum.Common.csproj", "{5B8F42C2-CE2A-4E85-9FFB-47A3BEE53932}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarForum.Common", "Common\CarForum.Common\CarForum.Common.csproj", "{5B8F42C2-CE2A-4E85-9FFB-47A3BEE53932}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarForum.Api.Domain", "Api\Core\CarForum.Api.Domain\CarForum.Api.Domain.csproj", "{24BBA6E3-EED5-4075-AD0B-B900E97752D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarForum.Api.Domain", "Api\Core\CarForum.Api.Domain\CarForum.Api.Domain.csproj", "{24BBA6E3-EED5-4075-AD0B-B900E97752D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarForum.Api.Application", "Api\Core\CarForum.Api.Application\CarForum.Api.Application.csproj", "{0680698E-EAD7-4D99-BD7E-69241322923A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarForum.Api.Application", "Api\Core\CarForum.Api.Application\CarForum.Api.Application.csproj", "{0680698E-EAD7-4D99-BD7E-69241322923A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarForum.Infrastructure.Persistence", "Api\Infrastructure\CarForum.Infrastructure.Persistence\CarForum.Infrastructure.Persistence.csproj", "{5D156957-8CC4-409C-BD87-3A59911CF905}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarForum.Infrastructure.Persistence", "Api\Infrastructure\CarForum.Infrastructure.Persistence\CarForum.Infrastructure.Persistence.csproj", "{5D156957-8CC4-409C-BD87-3A59911CF905}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarForum.Api.WebApi", "Api\WebApi\CarForum.Api.WebApi\CarForum.Api.WebApi.csproj", "{5B5A6EEE-C3EE-4F9C-B522-8694F5B49259}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarForum.Api.WebApi", "Api\WebApi\CarForum.Api.WebApi\CarForum.Api.WebApi.csproj", "{5B5A6EEE-C3EE-4F9C-B522-8694F5B49259}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarForum.Projections.FavoriteService", "Projections\CarForum.Projections.FavoriteService\CarForum.Projections.FavoriteService.csproj", "{A004FB7B-35EC-4077-A22F-62A4F9220E49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarForum.Projections.FavoriteService", "Projections\CarForum.Projections.FavoriteService\CarForum.Projections.FavoriteService.csproj", "{A004FB7B-35EC-4077-A22F-62A4F9220E49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarForum.Projections.UserService", "Projections\CarForum.Projections.UserService\CarForum.Projections.UserService.csproj", "{A62D2244-DC42-4F6F-9544-B6D449104ADE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarForum.Projections.UserService", "Projections\CarForum.Projections.UserService\CarForum.Projections.UserService.csproj", "{A62D2244-DC42-4F6F-9544-B6D449104ADE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarForum.Projections.VoteService", "Projections\CarForum.Projections.VoteService\CarForum.Projections.VoteService.csproj", "{464DAEDA-B84E-4518-AB7B-4FF6B389F90A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarForum.Projections.VoteService", "Projections\CarForum.Projections.VoteService\CarForum.Projections.VoteService.csproj", "{464DAEDA-B84E-4518-AB7B-4FF6B389F90A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarForum.WebApp", "Clients\BlazorWeb\CarForum.WebApp\CarForum.WebApp.csproj", "{2FA63DAD-A803-4FC5-B85A-6D980F0324BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarForum.WebApp", "Clients\BlazorWeb\CarForum.WebApp\CarForum.WebApp.csproj", "{2FA63DAD-A803-4FC5-B85A-6D980F0324BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
